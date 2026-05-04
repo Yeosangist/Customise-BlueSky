@@ -1,0 +1,50 @@
+/* ==UserStyle==
+@name           Custom BlueSky
+@namespace      https://userstyles.world/user/Yeosangist
+@version        1.0.0
+@description    Customise BlueSky background, links, buttons, and text colours
+@author         Yeosangist
+
+@var color textc "Text colour" #00aa00
+@var color svg "SVG colours" #0c0
+@var color bground "Background colour" #000800
+@var color bttn "Button colours" #050
+@var color lnk "Links (includes usernames)" #0f0
+==/UserStyle== */
+
+@-moz-document domain("bsky.app") {
+    :root {    
+        html.theme--dark, html.theme--dim {
+            --background: var(--bground) !important;
+        }
+}
+    
+    /*Background*/
+    html.theme--dark, html.theme--dark body,
+    html.theme--dark #root, .css-g5y9jx.r-13awgt0,
+    [role="tablist"], .css-g5y9jx.r-12vffkv {
+        background-color: var(--bground) !important;
+    }
+    
+    /*svgs*/
+    svg path { fill: var(--svg) !important}
+    
+    /*Text*/
+    .css-146c3p1 { color: var(--textc) !important}
+    
+    
+    /*Buttons*/
+    [aria-label="Compose new post"], [aria-label="New chat"],
+    [aria-label="Follow"], [aria-label="Follow back"],
+    [aria-label="Add this feed to your feeds"],
+    [aria-label="Edit interests"]
+    {background-color: var(--bttn) !important}
+    
+    /*Adds colour back to the deactivate and delete buttons to make them more visually distinct*/
+    button[aria-label="Deactivate account"] [class=css-146c3p1] { color: #f55 !important}
+    button[aria-label="Delete account"] [class=css-146c3p1] { color: #f00 !important}
+    
+    /*Links*/
+    [role=link] { color: var(--lnk) !important}
+
+}
